@@ -22,6 +22,9 @@ public class NumberToSpeech {
 
         input = scan.next();
 
+        //System.out.println(input.substring(input.length() - 2).substring(0,1));
+        System.out.println(input.substring(1, 3));
+
         switch (input.length()) {
 
             case 1:
@@ -40,47 +43,32 @@ public class NumberToSpeech {
 
                         break;
 
-                    case "2":
+                    default:
 
                         System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
 
                         break;
 
-                    case "3":
+//                    
+                }
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                break;
 
-                        break;
-                    case "4":
+            case 3:
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED AND " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
 
-                        break;
-                    case "5":
+                break;
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+            case 4:
 
-                        break;
-                    case "6":
+                if (input.substring(1, 3).equals("00")) {
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND AND " + numbertospeech.returnUnits(input));
 
-                        break;
-                    case "7":
+                } else {
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
-
-                        break;
-                    case "8":
-
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
-
-                        break;
-                    case "9":
-
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
-
-                        break;
+                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND " + numbertospeech.returnHundreds(input) + " HUNDRED AND " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
 
                 }
 
@@ -174,7 +162,7 @@ public class NumberToSpeech {
 
     public String returnTens(String input) {
 
-        switch (input) {
+        switch (input.substring(input.length() - 2)) {
 
             case "10":
 
@@ -256,7 +244,7 @@ public class NumberToSpeech {
 
     public String returnDecimals(String input) {
 
-        switch (input.substring(0, 1)) {
+        switch (input.substring(input.length() - 2).substring(0, 1)) {
 
             case "2":
 
@@ -321,6 +309,88 @@ public class NumberToSpeech {
 
         return input;
 
+    }
+
+    public String returnHundreds(String input) {
+
+        switch (input.substring(0, 1)) {
+
+            case "0":
+
+                input = unitArray[0];
+
+                System.out.println(input);
+
+                break;
+
+            case "1":
+
+                input = unitArray[1];
+
+                System.out.println(input);
+
+                break;
+
+            case "2":
+
+                input = unitArray[2];
+
+                System.out.println(input);
+
+                break;
+            case "3":
+
+                input = unitArray[3];
+
+                System.out.println(input);
+
+                break;
+            case "4":
+
+                input = unitArray[4];
+
+                System.out.println(input);
+
+                break;
+            case "5":
+
+                input = unitArray[5];
+
+                System.out.println(input);
+
+                break;
+            case "6":
+
+                input = unitArray[6];
+
+                System.out.println(input);
+
+                break;
+            case "7":
+
+                input = unitArray[7];
+
+                System.out.println(input);
+
+                break;
+            case "8":
+
+                input = unitArray[8];
+
+                System.out.println(input);
+
+                break;
+            case "9":
+
+                input = unitArray[9];
+
+                System.out.println(input);
+
+                break;
+
+        }
+
+        return input;
     }
 
 }
