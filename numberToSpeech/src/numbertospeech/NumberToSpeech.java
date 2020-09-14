@@ -27,13 +27,12 @@ public class NumberToSpeech {
         // System.out.println(input.substring(1)); // Takes first digit
         //System.out.println(input.substring(input.length() - 2,1)); //outputs always last two digits
         // System.out.println(input.substring(input.length() - 2, input.length() - 1)); //outputs always penultimate digit
-        System.out.println(input.substring(1, 2));
-
+        //System.out.println(input.substring(1, 2));
         switch (input.length()) {
 
             case 1:
 
-                numbertospeech.returnUnits(input);
+                System.out.println(numbertospeech.returnUnits(input));
 
                 break;
 
@@ -73,7 +72,7 @@ public class NumberToSpeech {
 
                 } else {
 
-                    System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                    System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED AND" + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
                 }
 
                 break;
@@ -86,7 +85,7 @@ public class NumberToSpeech {
 
                 } else {
 
-                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND " + numbertospeech.returnHundreds(input.substring(1)) + " HUNDRED " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND " + numbertospeech.returnHundreds(input.substring(1)) + " HUNDRED AND " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
                 }
 
                 break;
@@ -103,15 +102,11 @@ public class NumberToSpeech {
 
                 input = unitArray[0];
 
-                System.out.println(input);
-
                 break;
 
             case "1":
 
                 input = unitArray[1];
-
-                System.out.println(input);
 
                 break;
 
@@ -119,56 +114,40 @@ public class NumberToSpeech {
 
                 input = unitArray[2];
 
-                System.out.println(input);
-
                 break;
             case "3":
 
                 input = unitArray[3];
-
-                System.out.println(input);
 
                 break;
             case "4":
 
                 input = unitArray[4];
 
-                System.out.println(input);
-
                 break;
             case "5":
 
                 input = unitArray[5];
-
-                System.out.println(input);
 
                 break;
             case "6":
 
                 input = unitArray[6];
 
-                System.out.println(input);
-
                 break;
             case "7":
 
                 input = unitArray[7];
-
-                System.out.println(input);
 
                 break;
             case "8":
 
                 input = unitArray[8];
 
-                System.out.println(input);
-
                 break;
             case "9":
 
                 input = unitArray[9];
-
-                System.out.println(input);
 
                 break;
 
@@ -185,15 +164,11 @@ public class NumberToSpeech {
 
                 input = tensArray[0];
 
-                System.out.println(input);
-
                 break;
 
             case "11":
 
                 input = tensArray[1];
-
-                System.out.println(input);
 
                 break;
 
@@ -201,56 +176,40 @@ public class NumberToSpeech {
 
                 input = tensArray[2];
 
-                System.out.println(input);
-
                 break;
             case "13":
 
                 input = tensArray[3];
-
-                System.out.println(input);
 
                 break;
             case "14":
 
                 input = tensArray[4];
 
-                System.out.println(input);
-
                 break;
             case "15":
 
                 input = tensArray[5];
-
-                System.out.println(input);
 
                 break;
             case "16":
 
                 input = tensArray[6];
 
-                System.out.println(input);
-
                 break;
             case "17":
 
                 input = tensArray[7];
-
-                System.out.println(input);
 
                 break;
             case "18":
 
                 input = tensArray[8];
 
-                System.out.println(input);
-
                 break;
             case "19":
 
                 input = tensArray[9];
-
-                System.out.println(input);
 
                 break;
 
@@ -267,15 +226,11 @@ public class NumberToSpeech {
 
                 input = decimalsArray[0];
 
-                System.out.println(input);
-
                 break;
 
             case "3":
 
                 input = decimalsArray[1];
-
-                System.out.println(input);
 
                 break;
 
@@ -283,42 +238,30 @@ public class NumberToSpeech {
 
                 input = decimalsArray[2];
 
-                System.out.println(input);
-
                 break;
             case "5":
 
                 input = decimalsArray[3];
-
-                System.out.println(input);
 
                 break;
             case "6":
 
                 input = decimalsArray[4];
 
-                System.out.println(input);
-
                 break;
             case "7":
 
                 input = decimalsArray[5];
-
-                System.out.println(input);
 
                 break;
             case "8":
 
                 input = decimalsArray[6];
 
-                System.out.println(input);
-
                 break;
             case "9":
 
                 input = decimalsArray[7];
-
-                System.out.println(input);
 
                 break;
 
@@ -336,15 +279,11 @@ public class NumberToSpeech {
 
                 input = unitArray[0];
 
-                System.out.println(input);
-
                 break;
 
             case "1":
 
                 input = unitArray[1];
-
-                System.out.println(input);
 
                 break;
 
@@ -352,56 +291,40 @@ public class NumberToSpeech {
 
                 input = unitArray[2];
 
-                System.out.println(input);
-
                 break;
             case "3":
 
                 input = unitArray[3];
-
-                System.out.println(input);
 
                 break;
             case "4":
 
                 input = unitArray[4];
 
-                System.out.println(input);
-
                 break;
             case "5":
 
                 input = unitArray[5];
-
-                System.out.println(input);
 
                 break;
             case "6":
 
                 input = unitArray[6];
 
-                System.out.println(input);
-
                 break;
             case "7":
 
                 input = unitArray[7];
-
-                System.out.println(input);
 
                 break;
             case "8":
 
                 input = unitArray[8];
 
-                System.out.println(input);
-
                 break;
             case "9":
 
                 input = unitArray[9];
-
-                System.out.println(input);
 
                 break;
 
@@ -451,7 +374,7 @@ public class NumberToSpeech {
         } else if (output.substring(2).equals("00")) {
 
             //Returns example FIVE THOUSAND FIVE HUNDRED
-            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output) + " HUNDRED";
+            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output.substring(1)) + " HUNDRED";
 
         } else if (output.substring(1, 2).equals("0") && output.substring(2, 3).equals("1")) {
 
@@ -463,17 +386,27 @@ public class NumberToSpeech {
             //Returns example FIVE THOUSAND FIVE HUNDRED AND ELEVEN
             output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output.substring(1)) + " HUNDRED AND " + numbertospeech.returnTens(output);
 
+        } else if (output.substring(output.length() - 1).equals("0") && !output.substring(1, 2).equals("0")) {
+
+            //Returns example FIVE THOUSAND ONE HUNDRED AND THIRTY
+            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output.substring(1)) + " HUNDRED AND " + numbertospeech.returnDecimals(output);
+
         } else if (output.substring(output.length() - 1).equals("0")) {
 
             //Returns example FIVE THOUSAND AND THIRTY
-            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output) + " HUNDRED " + numbertospeech.returnDecimals(output);
+            output = numbertospeech.returnHundreds(output) + " THOUSAND AND " + numbertospeech.returnDecimals(output);
 
         } else if (output.substring(output.length() - 2, output.length() - 1).equals("0")) {
 
             //Returns example FIVE THOUSAND AND ONE
             output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnUnits(output);
 
-        }
+        } else if (output.substring(1, 2).equals("0")) {
+
+            //Returns example FIVE THOUSAND THIRTY TWO
+            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnDecimals(output) + " " + numbertospeech.returnUnits(output);
+
+        } 
 
         return output;
     }
