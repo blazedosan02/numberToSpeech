@@ -23,8 +23,10 @@ public class NumberToSpeech {
         input = scan.next();
 
         //System.out.println(input.substring(input.length() - 2).substring(0,1));
-        System.out.println(input.substring(1, 3));
-
+        //System.out.println(input.substring(input.length() - 1)); //outputs always last digit
+        // System.out.println(input.substring(1)); // Takes first digit
+        //System.out.println(input.substring(input.length() - 2,1)); //outputs always last two digits
+//        System.out.println(input.substring(input.length() - 2, input.length() - 1)); //outputs always penultimate digit
         switch (input.length()) {
 
             case 1:
@@ -39,32 +41,50 @@ public class NumberToSpeech {
 
                     case "1":
 
+                        //returnTens method does logic of printing 10 to 19 
                         numbertospeech.returnTens(input);
 
                         break;
 
                     default:
 
-                        System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                        if (input.substring(1).equals("0")) {
+
+                            //Check if number contains zero to print if correctly
+                            System.out.println(numbertospeech.returnDecimals(input));
+
+                        } else {
+                            System.out.println(numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                        }
 
                         break;
 
-//                    
                 }
 
                 break;
 
             case 3:
 
-                System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED AND " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                if (input.contains("0")) {
+
+                    System.out.println(numbertospeech.checkForZero(input));
+
+                } else {
+
+                    System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                }
 
                 break;
 
             case 4:
 
-                if (input.substring(1, 3).equals("00")) {
+                if (input.substring(1).equals("000")) {
 
-                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND AND " + numbertospeech.returnUnits(input));
+                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND");
+
+                } else if (input.substring(1, 3).equals("00")) {
+
+                    System.out.println(numbertospeech.returnHundreds(input) + " THOUSAND " + numbertospeech.returnUnits(input));
 
                 } else {
 
@@ -391,6 +411,61 @@ public class NumberToSpeech {
         }
 
         return input;
+    }
+
+    public String checkForZero(String output) {
+
+        NumberToSpeech numbertospeech = new NumberToSpeech();
+
+        if (output.substring(output.length() - 2).equals("00")) {
+
+            //Returns example FIVE HUNDRED
+            output = numbertospeech.returnHundreds(output) + " HUNDRED";
+
+        } else if (output.substring(output.length() - 2, output.length() - 1).equals("1")) {
+
+            //Returns example FIVE HUNDRED AND ELEVEN
+            output = numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnTens(output);
+
+        } else if (output.substring(output.length() - 1).equals("0")) {
+
+            //Returns example FIVE HUNDRED AND THIRTY
+            output = numbertospeech.returnHundreds(output) + " HUNDRED " + numbertospeech.returnDecimals(output);
+
+        } else if (output.substring(output.length() - 2, output.length() - 1).equals("0")) {
+
+            //Returns example FIVE HUNDRED AND ONE
+            output = numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnUnits(output);
+
+        }
+
+//        if (output.substring(1).equals("00")) {
+//
+//            //Returns example FIVE HUNDRED
+//            System.out.println(numbertospeech.returnHundreds(output) + " HUNDRED");
+//
+//        } else if (output.endsWith("0")) {
+//
+//            //Returns example FIVE HUNDRED AND THIRTY
+//            System.out.println(numbertospeech.returnHundreds(output) + " HUNDRED " + numbertospeech.returnDecimals(output));
+//
+//        } else if (output.substring(1, 2).equals("0")) {
+//
+//            //Returns example FIVE HUNDRED AND ONE
+//            System.out.println(numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnUnits(output));
+//
+//        } else if (output.substring(1, 2).equals("1")) {
+//
+//            //Returns example FIVE HUNDRED AND TWELVE
+//            System.out.println(numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnTens(output));
+//
+//        } else {
+//
+//            //Returns Any Other Hundreds Number
+//            System.out.println(numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnDecimals(output) + " " + numbertospeech.returnUnits(output));
+//
+//        }
+        return output;
     }
 
 }
