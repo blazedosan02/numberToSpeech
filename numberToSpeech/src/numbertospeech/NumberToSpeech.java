@@ -28,6 +28,10 @@ public class NumberToSpeech {
         //System.out.println(input.substring(input.length() - 2,1)); //outputs always last two digits
         // System.out.println(input.substring(input.length() - 2, input.length() - 1)); //outputs always penultimate digit
         //System.out.println(input.substring(1, 2));
+        //System.out.println(input.substring(0, 2));
+        
+       // System.out.println( input.substring(input.length() - 2) + " NUM");
+        
         switch (input.length()) {
 
             case 1:
@@ -72,7 +76,7 @@ public class NumberToSpeech {
 
                 } else {
 
-                    System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED AND" + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                    System.out.println(numbertospeech.returnHundreds(input) + " HUNDRED AND " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
                 }
 
                 break;
@@ -90,6 +94,20 @@ public class NumberToSpeech {
 
                 break;
 
+            case 5:
+                
+                 if (input.contains("0") || input.substring(1, 2).equals("1")) {
+
+                    System.out.println(numbertospeech.printFirstTwoDigitsTenThousands(input, 0, 2)+ " THOUSAND "+ numbertospeech.checkForZeroInHundreds(input.substring(2)));
+
+                } else {
+
+                    System.out.println(numbertospeech.printFirstTwoDigitsTenThousands(input, 0, 2)+ " THOUSAND " + numbertospeech.returnHundreds(input.substring(2, 3)) + " HUNDRED " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
+                }
+
+                
+
+                //System.out.println(numbertospeech.returnTens(input.substring(0, 2)) + " THOUSAND " + numbertospeech.returnHundreds(input.substring(2, 3)) + " HUNDRED " + numbertospeech.returnDecimals(input) + " " + numbertospeech.returnUnits(input));
         }
 
     }
@@ -396,17 +414,55 @@ public class NumberToSpeech {
             //Returns example FIVE THOUSAND AND THIRTY
             output = numbertospeech.returnHundreds(output) + " THOUSAND AND " + numbertospeech.returnDecimals(output);
 
-        } else if (output.substring(output.length() - 2, output.length() - 1).equals("0")) {
+        } else if (output.substring(1, 3).equals("00")) {
 
             //Returns example FIVE THOUSAND AND ONE
             output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnUnits(output);
+
+        } else if (output.substring(2, 3).equals("0")) {
+
+            //Returns example ONE THOUSAND ONE HUNDRED AND ONE
+            output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnHundreds(output) + " HUNDRED AND " + numbertospeech.returnUnits(output);
 
         } else if (output.substring(1, 2).equals("0")) {
 
             //Returns example FIVE THOUSAND THIRTY TWO
             output = numbertospeech.returnHundreds(output) + " THOUSAND " + numbertospeech.returnDecimals(output) + " " + numbertospeech.returnUnits(output);
 
-        } 
+        }
+
+        return output;
+    }
+
+    public String printFirstTwoDigitsTenThousands(String output, int sub1, int sub2) {
+
+        NumberToSpeech numbertospeech = new NumberToSpeech();
+        
+        output = output.substring(sub1, sub2); // Will cut the output String Example output = 12345 and cut will be 12
+
+        switch (output.substring(0,1)) {
+
+            case "1":
+
+                //returnTens method does logic of printing 10 to 19 
+                output = numbertospeech.returnTens(output);
+
+                break;
+
+            default:
+
+                if (output.substring(1).equals("0")) {
+
+                    //Check if number contains zero to print if correctly
+                    output = numbertospeech.returnDecimals(output);
+
+                } else {
+                     output = numbertospeech.returnDecimals(output) + " " + numbertospeech.returnUnits(output);
+                }
+
+                break;
+
+        }
 
         return output;
     }
